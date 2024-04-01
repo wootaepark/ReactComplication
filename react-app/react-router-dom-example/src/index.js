@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import {HashRouter,BrowserRouter, Route, Routes, Link, NavLink} from 'react-router-dom'
 
 function Home(){
   return(
@@ -33,9 +33,9 @@ function App(){
     <div>
       <h1>Hello React Router DOM</h1>
       <ul>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/topics'>Topics</a></li>
-        <li><a href='/contact'>Contact</a></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/topics'>Topics</NavLink></li>
+        <li><NavLink to='/contact'>Contact</NavLink></li>
       </ul>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
@@ -50,7 +50,12 @@ function App(){
   )
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<BrowserRouter><App /></BrowserRouter>);
+
+ReactDOM.createRoot(document.getElementById('root')).render(<HashRouter><App /></HashRouter>);
+// 위 처럼 사용하게 되면, 사용자가 어느 url로 들어와도 해당 경로로 위치 시켜준다. /#/로 나타내어 지는데, # 뒤의 요소는 무시한다.
+
+//ReactDOM.createRoot(document.getElementById('root')).render(<BrowserRouter><App /></BrowserRouter>);
+
 // index.html에 'root'라는 아이디를 가진 요소가 있다.
 
 // If you want to start measuring performance in your app, pass a function
