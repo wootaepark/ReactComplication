@@ -3,12 +3,58 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {HashRouter,BrowserRouter, Route, Routes, Link, NavLink, useParams} from 'react-router-dom'
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  color : white;
+  background-color : green;
+  text-align : center;
+`;
+
+const LargeButton = styled(StyledButton)`
+  font-size : 50px;
+`;
+const PrimaryButton = styled.button`
+  color : ${props => props.primary ? 'white' : 'black'};
+  background-color : ${props => props.primary ? 'black' : 'white'};
+
+  color : ${function(props){
+    console.log('props', props);
+    if(props.primary){
+      return 'white';
+    }
+    else{
+      return 'black';
+    }
+    
+  }};
+`;
+const ReactButton = props => {
+  console.log('props', props);
+  return <button className={props.className}>{props.children}</button>
+}
+
+const ReactLargeButton = styled(ReactButton)`
+  font-size : 50px; 
+`;
+
 
 function Home(){
   return(
     <div>
       <h2>Home</h2>
-      Home...
+      <p>Home...</p>
+      <div>
+        <StyledButton>simple</StyledButton>
+        <LargeButton>Large</LargeButton>
+        <ReactButton>react</ReactButton>
+        <ReactLargeButton>react Large</ReactLargeButton>
+        
+      </div>
+
+      <PrimaryButton>Normal</PrimaryButton>
+      <PrimaryButton primary="true">Primary</PrimaryButton>
+        
     </div>
   );
 }
