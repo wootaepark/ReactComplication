@@ -35,7 +35,10 @@ const ReactButton = props => {
 }
 
 const ReactLargeButton = styled(ReactButton)`
-  font-size : 50px; 
+  font-size : 50px;
+  background-color :skyblue;
+
+    
 `;
 
 
