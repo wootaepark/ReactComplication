@@ -53,6 +53,7 @@ function Home(){
         <ReactButton>react</ReactButton>
         <ReactLargeButton>react Large</ReactLargeButton>
         
+        
       </div>
 
       <PrimaryButton>Normal</PrimaryButton>
@@ -148,6 +149,7 @@ function App(){
 
 ReactDOM.createRoot(document.getElementById('root')).render(<HashRouter><App /></HashRouter>);
 // 위 처럼 사용하게 되면, 사용자가 어느 url로 들어와도 해당 경로로 위치 시켜준다. /#/로 나타내어 지는데, # 뒤의 요소는 무시한다.
+// HashRouter 와 BrowserRouter 의 차이점
 
 //ReactDOM.createRoot(document.getElementById('root')).render(<BrowserRouter><App /></BrowserRouter>);
 
